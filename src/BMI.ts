@@ -7,7 +7,10 @@
  */
 function calculateBMI(weight: number, height: number): number {
   // Write your code here 👇🏼
-  const BMI = 0;
+  height = height / 100;
+  // weight = 70;
+
+  const BMI = weight / (height * height);
   // Stop making changes here!
   return BMI;
 }
@@ -25,6 +28,16 @@ function getBMIState(BMI: number): BMIStatus {
   // Don't change this variable
   let BMIState: BMIStatus = "obese";
   // Write your code here 👇🏼
+
+  if (BMI < 18.5) {
+    BMIState = "underweight";
+  } else if (BMI >= 18.5 && BMI < 25) {
+    BMIState = "healthy";
+  } else if (BMI >= 25 && BMI < 30) {
+    BMIState = "overweight";
+  } else if (BMI >= 30) {
+    BMIState = "obese";
+  }
 
   // Stop making changes here!
   return BMIState;
@@ -44,7 +57,21 @@ function getBMIStateByAge(BMI: number, age: number): HealthStatus {
   // Don't change this variable
   let BMIState: HealthStatus = "not healthy";
   // Write your code here 👇🏼
-
+  if (age >= 19 && age <= 24) {
+    BMIState = BMI >= 19 && BMI <= 24 ? "healthy" : "not healthy";
+  } else if (age >= 25 && age <= 34) {
+    BMIState = BMI >= 20 && BMI <= 25 ? "healthy" : "not healthy";
+  } else if (age >= 35 && age <= 44) {
+    BMIState = BMI >= 21 && BMI <= 26 ? "healthy" : "not healthy";
+  } else if (age >= 45 && age <= 54) {
+    BMIState = BMI >= 22 && BMI <= 27 ? "healthy" : "not healthy";
+  } else if (age >= 55 && age <= 64) {
+    BMIState = BMI >= 23 && BMI <= 28 ? "healthy" : "not healthy";
+  } else if (age >= 65) {
+    BMIState = BMI >= 24 && BMI <= 29 ? "healthy" : "not healthy";
+  } else {
+    BMIState = "not healthy";
+  }
   // Stop making changes here!
   return BMIState;
 }
